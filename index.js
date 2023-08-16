@@ -13,7 +13,7 @@ const babel = require('@babel/core');
 
 let options;
 try {
-  const configPath = path.resolve(__dirname, 'minipack.config.js');
+  const configPath = path.resolve(process.cwd(), 'minipack.config.js');
   options = require(configPath);
 } catch (err) {
   throw new Error('缺少配置文件：minipack.config.js');

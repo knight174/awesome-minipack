@@ -1,6 +1,6 @@
 {
   "name": "@mypack/minipack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "模拟一个 ESM 打包器",
   "main": "index.js",
   "bin": {
