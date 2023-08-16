@@ -1,16 +1,16 @@
 {
-  "name": "@enjoyable/minipack",
+  "name": "@mypack/minipack",
   "version": "1.0.0",
   "description": "模拟一个 ESM 打包器",
   "main": "index.js",
   "bin": {
-    "@enjoyable/minipack": "index.js"
+    "@mypack/minipack": "index.js"
   },
   "scripts": {
     "build": "node index.js"
   },
   "keywords": [
-    "@enjoyable/minipack",
+    "@mypack/minipack",
     "esm bundler"
   ],
   "author": "knight174",
