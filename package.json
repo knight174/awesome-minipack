@@ -1,0 +1,18 @@
+{
+  "name": "@enjoyable/minipack",
+  "version": "1.0.2",
+  "description": "模拟一个打包器",
+  "main": "index.js",
+  "bin": {
+    "@enjoyable/minipack": "index.js"
+  },
+  "scripts": {
+    "build": "node index.js"
+  },
+  "keywords": [
+    "funpack",
+    "esm bundler"
+  ],
+  "author": "knight174",
+  "license": "MIT"
+}

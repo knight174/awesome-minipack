@@ -1,0 +1,6 @@
+dist
+src
+minipack.config.js
+public
+package-lock.json
+docs

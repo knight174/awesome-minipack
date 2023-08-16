@@ -11,6 +11,14 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const babel = require('@babel/core');
 
+let options;
+try {
+  const configPath = path.resolve(__dirname, 'minipack.config.js');
+  options = require(configPath);
+} catch (err) {
+  throw new Error('缺少配置文件：minipack.config.js');
+}
+
 // 模块依赖
 const moduleAnalyser = (filename) => {
   const content = fs.readFileSync(filename, 'utf-8');
@@ -74,8 +82,7 @@ const generateCode = (entry) => {
   // 传入依赖图谱字符串，如果 eval 出的代码里有 require，那么就执行传入 localRequire 方法
   // localRequire 方法：根据 dependencies[relativePath]，继续递归执行外部作用域的 require 方法，又会再次进入 eval，执行代码
   // exports 对象处理：当执行 require 方法时，如果模块里的通过 exports 导出属性或者方法时，需要有个空对象承接，然后下一个模块才能用这个结果。
-  return `
-    (function (graph) {
+  return `(function (graph) {
       function require(module) {
         function localRequire(relativePath) {
           return require(graph[module].dependencies[relativePath]);
@@ -87,9 +94,29 @@ const generateCode = (entry) => {
         return exports;
       }
       require('${entry}');
-    })(${graph})
-  `;
+    })(${graph})`;
 };
 
-const code = generateCode('./src/index.js');
-console.log(code);
+// const code = generateCode('./src/index.js');
+// console.log(code);
+
+(function (options) {
+  const folderName = options.output.path;
+  fs.mkdir(folderName, { recursive: true }, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // 创建并写入文件
+      const fileName = options.output.filename;
+      const fileContent = generateCode(options.entry);
+
+      fs.writeFile(`${folderName}/${fileName}`, fileContent, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(`Bundle successfully.`);
+        }
+      });
+    }
+  });
+})(options);
