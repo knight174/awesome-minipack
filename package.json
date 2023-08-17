@@ -1,6 +1,6 @@
 {
   "name": "awesome-minipack",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A mini bundler for ESM.",
   "main": "index.js",
   "bin": {
@@ -14,6 +14,10 @@
   "license": "MIT",
   "repository": "Knight174/awesome-minipack",
   "dependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/parser": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/traverse": "^7.22.10",
     "commander": "^11.0.0"
   }
 }
