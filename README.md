@@ -1,16 +1,11 @@
 # awesome-minipack
 
-ESM 模块打包器
+A mini bundler for ESM. | ESM 模块打包器
 
 ## start
 
 ```bash
 npm i awesome-minipack
-
-# bundle
-minipack
-# or
-minipack -c minipack.config.js
 ```
 
 ## example
@@ -29,9 +24,21 @@ module.exports = {
 };
 ```
 
+### scripts
+
+scripts in package.json
+
+```json
+"scripts": {
+  "build": "minipack"
+},
+```
+
 ### bundle
 
 ```bash
+npm run build
+# or
 npx minipack
 # or
 npx minipack -c minipack.config.js

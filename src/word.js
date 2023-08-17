@@ -1,1 +1,1 @@
-export const word = 'hello';
+export const word = 'awesome-minipack';

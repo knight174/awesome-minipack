@@ -1,4 +1,4 @@
 import { word } from './word.js';
-const message = `say ${word}`;
+const message = `This is ${word}.`;
 
 export default message;
