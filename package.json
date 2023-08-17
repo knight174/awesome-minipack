@@ -1,7 +1,7 @@
 {
   "name": "awesome-minipack",
-  "version": "1.0.0",
-  "description": "模拟一个 ESM 打包器",
+  "version": "1.2.0",
+  "description": "A mini bundler for ESM.",
   "main": "index.js",
   "bin": {
     "minipack": "cli.js"
@@ -10,8 +10,9 @@
     "minipack",
     "esm bundler"
   ],
-  "author": "knight174",
+  "author": "Eric Chen <eric@ericchenart.com>",
   "license": "MIT",
+  "repository": "Knight174/awesome-minipack",
   "dependencies": {
     "commander": "^11.0.0"
   }
