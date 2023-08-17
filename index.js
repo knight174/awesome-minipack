@@ -11,14 +11,6 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const babel = require('@babel/core');
 
-let options;
-try {
-  const configPath = path.resolve(process.cwd(), 'minipack.config.js');
-  options = require(configPath);
-} catch (err) {
-  throw new Error('缺少配置文件：minipack.config.js');
-}
-
 // 模块依赖
 const moduleAnalyser = (filename) => {
   const content = fs.readFileSync(filename, 'utf-8');
@@ -100,23 +92,24 @@ const generateCode = (entry) => {
 // const code = generateCode('./src/index.js');
 // console.log(code);
 
-(function (options) {
-  const folderName = options.output.path;
+function minipack(config, cb) {
+  const folderName = config.output.path;
   fs.mkdir(folderName, { recursive: true }, (err) => {
     if (err) {
       console.error(err);
     } else {
       // 创建并写入文件
-      const fileName = options.output.filename;
-      const fileContent = generateCode(options.entry);
+      const fileName = config.output.filename;
+      const fileContent = generateCode(config.entry);
 
       fs.writeFile(`${folderName}/${fileName}`, fileContent, (err) => {
         if (err) {
-          console.error(err);
+          cb(err);
         } else {
-          console.log(`Bundle successfully.`);
+          cb();
         }
       });
     }
   });
-})(options);
+}
+module.exports = minipack;
