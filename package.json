@@ -1,13 +1,13 @@
 {
-  "name": "@mypack/minipack",
-  "version": "1.0.1",
+  "name": "minipack",
+  "version": "1.0.0",
   "description": "模拟一个 ESM 打包器",
   "main": "index.js",
   "bin": {
     "minipack": "cli.js"
   },
   "keywords": [
-    "@mypack/minipack",
+    "minipack",
     "esm bundler"
   ],
   "author": "knight174",

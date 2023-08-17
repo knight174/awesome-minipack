@@ -1,11 +1,11 @@
-# @mypack/minipack
+# minipack
 
 ESM 模块打包器
 
 ## start
 
 ```bash
-npm i @mypack/minipack
+npm i minipack
 
 # bundle
 minipack
