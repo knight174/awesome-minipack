@@ -1,5 +1,5 @@
 {
-  "name": "minipack",
+  "name": "awesome-minipack",
   "version": "1.0.0",
   "description": "模拟一个 ESM 打包器",
   "main": "index.js",

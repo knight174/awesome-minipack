@@ -1,11 +1,11 @@
-# minipack
+# awesome-minipack
 
 ESM 模块打包器
 
 ## start
 
 ```bash
-npm i minipack
+npm i awesome-minipack
 
 # bundle
 minipack
@@ -32,7 +32,7 @@ module.exports = {
 ### bundle
 
 ```bash
-minipack
+npx minipack
 # or
-minipack -c minipack.config.js
+npx minipack -c minipack.config.js
 ```
